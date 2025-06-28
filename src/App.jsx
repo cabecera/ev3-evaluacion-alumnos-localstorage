@@ -1,46 +1,74 @@
-import React, { useState, useEffect } from 'react';
-import Form from './components/Form';
-import List from './components/List';
-import Item from './components/Item';
+import { useState, useEffect } from 'react';
+import EvaluationForm from './components/EvaluationForm';
+import EvaluationList from './components/EvaluationList';
 import './App.css';
 
 function App() {
-  const [items, setItems] = useState([]);
-  const [itemToEdit, setItemToEdit] = useState(null);
+  const [evaluations, setEvaluations] = useState([]);
+  const [editingEvaluation, setEditingEvaluation] = useState(null);
 
+  // Cargar evaluaciones desde localStorage
   useEffect(() => {
-    const storedItems = JSON.parse(localStorage.getItem('items')) || [];
-    setItems(storedItems);
+    const saved = localStorage.getItem('evaluations');
+    if (saved) setEvaluations(JSON.parse(saved));
   }, []);
 
+  // Guardar evaluaciones en localStorage
   useEffect(() => {
-    localStorage.setItem('items', JSON.stringify(items));
-  }, [items]);
+    localStorage.setItem('evaluations', JSON.stringify(evaluations));
+  }, [evaluations]);
 
-    const addOrUpdateItem = (value) => {
-      if (itemToEdit) {
-        setItems(items.map(item => item.id === itemToEdit.id ? { ...item, value } : item));
-        setItemToEdit(null);
-      } else {
-        setItems([...items, { id: Date.now(), value }]);
-      }
-    };
+  const addEvaluation = (evaluation) => {
+    setEvaluations([...evaluations, { ...evaluation, id: Date.now() }]);
+  };
 
-    const deleteItem = (id) => {
-      setItems(items.filter(item => item.id !== id));
-    }
+  const updateEvaluation = (updatedEvaluation) => {
+    setEvaluations(evaluations.map(item =>
+      item.id === updatedEvaluation.id ? updatedEvaluation : item
+    ));
+    setEditingEvaluation(null);
+  };
 
-    const editItem = (item) => {
-      setItemToEdit(item);
-    }
+  const deleteEvaluation = (id) => {
+    setEvaluations(evaluations.filter(item => item.id !== id));
+  };
 
-    return (
-      <div className="app">
-        <h1>Mi CRUD con local storage</h1>
-        <Form addOrUpdateItem={addOrUpdateItem} itemToEdit={itemToEdit} />
-        <List items={items} deleteItem={deleteItem} editItem={editItem} />
+  return (
+    <div className="app-container">
+      <div className="header-section">
+        <h1>Evaluación de Alumnos</h1>
       </div>
-    );
+
+      <div className="form-section">
+        {editingEvaluation ? (
+          <div className="edit-section">
+            <EvaluationForm
+              onSubmit={updateEvaluation}
+              initialData={editingEvaluation}
+              buttonText="Actualizar Evaluación"
+              title="Editar Evaluación"
+            />
+          </div>
+        ) : (
+          <div className="add-section">
+            <EvaluationForm
+              onSubmit={addEvaluation}
+              buttonText="Agregar Evaluación"
+              title="Agregar Nueva Evaluación"
+            />
+          </div>
+        )}
+      </div>
+
+      <div className="list-section">
+        <EvaluationList
+          evaluations={evaluations}
+          onEdit={setEditingEvaluation}
+          onDelete={deleteEvaluation}
+        />
+      </div>
+    </div>
+  );
 }
 
 export default App;

@@ -1,42 +1,137 @@
-#root {
-  max-width: 1280px;
+body {
+  background-color: white;
+  margin: 0;
+  padding: 0;
+  color: black;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.app-container {
+  max-width: 800px;
+  width: 100%;
   margin: 0 auto;
-  padding: 2rem;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+  background-color: white;
+  color: black;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.header-section {
+  width: 100%;
   text-align: center;
+  margin-bottom: 30px;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+.form-section {
+  width: 100%;
+  margin-bottom: 30px;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.list-section {
+  width: 100%;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+.edit-section, .add-section {
+  width: 100%;
 }
 
-.card {
-  padding: 2em;
+.evaluation-form {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  margin-bottom: 30px;
+  border: 1px solid #ddd;
+  color: black;
 }
 
-.read-the-docs {
-  color: #888;
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.submit-btn {
+  background-color: #4467d8;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  width: 100%;
+  font-size: 16px;
+}
+
+.evaluation-card {
+  border: 1px solid #ddd;
+  padding: 15px;
+  margin-bottom: 15px;
+  border-radius: 8px;
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.evaluation-info {
+  flex: 1;
+}
+
+.evaluation-info h3 {
+  margin: 0 0 5px 0;
+}
+
+.evaluation-info p {
+  margin: 2px 0;
+}
+
+
+
+.badge {
+  background-color: #4467d8;
+  color: #ffffff;
+  padding: 3px 8px;
+  border-radius: 12px;
+  font-size: 0.8em;
+  font-weight: bold;
+}
+
+.evaluation-actions {
+  display: flex;
+  gap: 10px;
+  margin-left: 20px;
+}
+
+.edit-btn {
+  background-color: #e9b130;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.delete-btn {
+  background-color: #f44336;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 4px;
+  cursor: pointer;
 }
