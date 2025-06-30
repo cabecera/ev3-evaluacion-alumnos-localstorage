@@ -1,13 +1,25 @@
-import React from 'react';
+function EvaluationItem({ evaluation, onEdit, onDelete }) {
+  const isOutstanding = evaluation.average >= 6.0;
 
-function Item({ item, deleteItem, editItem }) {
-    return (
-        <li>
-            {item.value}
-            <button onClick={() => editItem(item)}>Editar</button>
-            <button onClick={() => deleteItem(item.id)}>Eliminar</button>
-        </li>
-    );
+  return (
+    <div className={`evaluation-card ${isOutstanding ? 'outstanding' : ''}`}>
+      <div className="evaluation-info">
+        <h3>Alumno: {evaluation.studentName}</h3>
+        <p>Asignatura: {evaluation.subject}</p>
+        <p>Promedio: {evaluation.average.toFixed(1)}</p>
+        {isOutstanding && <span className="badge">Destacado</span>}
+      </div>
+
+      <div className="evaluation-actions">
+        <button onClick={() => onEdit(evaluation)} className="edit-btn">
+          Editar
+        </button>
+        <button onClick={() => onDelete(evaluation.id)} className="delete-btn">
+          Eliminar
+        </button>
+      </div>
+    </div>
+  );
 }
 
-export default Item;
+export default EvaluationItem;

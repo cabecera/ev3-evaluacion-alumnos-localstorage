@@ -1,14 +1,26 @@
-import React from 'react';
-import Item from './Item';
+import EvaluationItem from './EvaluationItem';
 
-function List({ items, deleteItem, editItem }) {
-    return (
-        <ul>
-            {items.map((item) => (
-                <Item key={item.id} item={item} deleteItem={deleteItem} editItem={editItem} />
-            ))}
-        </ul>
-    );
+function EvaluationList({ evaluations, onEdit, onDelete }) {
+  return (
+    <div className="evaluations-section">
+      <h2>Evaluaciones Guardadas</h2>
+
+      {evaluations.length === 0 ? (
+        <p>No hay evaluaciones guardadas aún. ¡Agrega una!</p>
+      ) : (
+        <div className="evaluations-grid">
+          {evaluations.map(evaluation => (
+            <EvaluationItem
+              key={evaluation.id}
+              evaluation={evaluation}
+              onEdit={onEdit}
+              onDelete={onDelete}
+            />
+          ))}
+        </div>
+      )}
+    </div>
+  );
 }
 
-export default List;
+export default EvaluationList;
