@@ -7,15 +7,17 @@ function EvaluationForm({ onSubmit, initialData, buttonText, title }) {
     average: 0.0
   });
 
+  //Carga los datos iniciales si existen cuando se está editando
   useEffect(() => {
     if (initialData) setEvaluation(initialData);
   }, [initialData]);
-
+//Actualiza el estado de la evaluacion cuando el usuario ingresa los datos
   const handleChange = (e) => {
     const { name, value } = e.target;
     setEvaluation({ ...evaluation, [name]: value });
   };
-
+//Maneja el envio del formulario, convierte el promedio a un numero flotante,
+// envia los datos y limpia el formulariosi es una nueva evaluacion
   const handleSubmit = (e) => {
     e.preventDefault();
     onSubmit({

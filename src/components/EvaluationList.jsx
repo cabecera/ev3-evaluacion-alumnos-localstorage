@@ -1,5 +1,7 @@
 import EvaluationItem from './EvaluationItem';
 
+//Renderiza la lista de evaluaciones guardadas,mostrando un mensaje si no hay
+//evaluaciones o muestra las evaluaciones en un cuadro de evaluaciones
 function EvaluationList({ evaluations, onEdit, onDelete }) {
   return (
     <div className="evaluations-section">

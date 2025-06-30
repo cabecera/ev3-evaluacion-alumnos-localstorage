@@ -101,8 +101,6 @@ body {
   margin: 2px 0;
 }
 
-
-
 .badge {
   background-color: #4467d8;
   color: #ffffff;
@@ -110,6 +108,27 @@ body {
   border-radius: 12px;
   font-size: 0.8em;
   font-weight: bold;
+}
+
+/* Estilos para los diferentes niveles de rendimiento */
+.evaluation-card.deficiente .badge {
+  background-color: #dc3545;
+  color: white;
+}
+
+.evaluation-card.con-mejora .badge {
+  background-color: #fd7e14;
+  color: white;
+}
+
+.evaluation-card.buen-trabajo .badge {
+  background-color: #28a745;
+  color: white;
+}
+
+.evaluation-card.destacado .badge {
+  background-color: #4467d8;
+  color: white;
 }
 
 .evaluation-actions {
