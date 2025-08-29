@@ -1,12 +1,25 @@
-# React + Vite
+# ev3-evaluacion-alumnos-localstorage - Asignatura Programación FrontEnd
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Descripción
+Aplicación para evaluar alumnos construida con React y Vite. Incluye ESLint para mantener la calidad del código utilizando `localStorage` para persistencia de datos.
 
-Currently, two official plugins are available:
+## Estructura del proyecto
+- `src/`: Código fuente de React  
+- `public/`: Archivos estáticos  
+- `package.json` y `package-lock.json`: Gestión de dependencias  
+- `vite.config.js`: Configuración de Vite  
+- `.gitignore`: Archivos a ignorar  
+- `eslint.config.js`: Reglas de linting  
+- `README.md`: Descripción de plantilla base :contentReference[oaicite:6]{index=6}
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Tecnologías
+- React  
+- Vite  
+- JavaScript  
+- ESLint
 
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Comandos útiles
+```bash
+npm install    # Instalar dependencias
+npm run dev    # Ejecutar en modo desarrollo
+npm run build  # Generar versión de producción
